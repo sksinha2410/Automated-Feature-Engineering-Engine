@@ -171,8 +171,8 @@ class AutoFeatureEngineeringPipeline(BaseEstimator, TransformerMixin):
         
         Returns
         -------
-        feature_names : list
-            Names of selected features.
+        feature_names : list or None
+            Names of selected features, or None if pipeline not fitted.
         """
         if self.pipeline_ is None:
             raise ValueError("Pipeline has not been fitted yet")
@@ -181,12 +181,8 @@ class AutoFeatureEngineeringPipeline(BaseEstimator, TransformerMixin):
         if 'feature_selection' in self.pipeline_.named_steps:
             return self.pipeline_.named_steps['feature_selection'].selected_features_
         else:
-            # If no selection, return all generated features
-            X_transformed = self.pipeline_.transform(pd.DataFrame())
-            if hasattr(X_transformed, 'columns'):
-                return list(X_transformed.columns)
-            else:
-                return None
+            # If no selection, we cannot easily determine feature names from FeatureUnion
+            return None
 
 
 class PassThroughTransformer(BaseEstimator, TransformerMixin):

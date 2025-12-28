@@ -100,8 +100,10 @@ def main():
         if selected_features:
             print(f"   Number of selected features: {len(selected_features)}")
             print(f"   First 10: {selected_features[:10]}")
-    except:
-        print("   (Unable to retrieve feature names)")
+        else:
+            print("   (Feature names not available)")
+    except (ValueError, AttributeError, KeyError) as e:
+        print(f"   (Unable to retrieve feature names: {e})")
     
     # Example with Logistic Regression
     print("\n6. Trying with Logistic Regression...")

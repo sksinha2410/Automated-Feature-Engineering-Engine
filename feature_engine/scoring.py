@@ -84,7 +84,7 @@ class FeatureScorer(BaseEstimator):
                     corr = np.abs(np.corrcoef(X_numeric[col], y_array)[0, 1])
                     # Handle NaN (constant features)
                     scores.append(corr if not np.isnan(corr) else 0.0)
-                except:
+                except (ValueError, TypeError, RuntimeError):
                     scores.append(0.0)
             scores = np.array(scores)
         else:
