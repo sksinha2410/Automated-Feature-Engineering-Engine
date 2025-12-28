@@ -17,6 +17,8 @@ A powerful Python library for automated feature generation and selection for tab
 
 - **Scikit-learn Integration**: Seamlessly integrate with scikit-learn pipelines for end-to-end ML workflows
 
+- **Web Interface**: Interactive web application for testing the library with your own datasets
+
 ## Installation
 
 ### Prerequisites
@@ -237,6 +239,34 @@ Run with:
 ```bash
 python examples/benchmark.py
 ```
+
+## Web Application
+
+An interactive web interface is available for testing the library with your own datasets!
+
+### Running the Web App
+
+```bash
+# Install web dependencies
+cd webapp
+pip install -r requirements.txt
+
+# Start the server
+python app.py
+```
+
+Then open your browser and navigate to `http://127.0.0.1:5000`
+
+### Features
+
+- Upload CSV datasets
+- Configure feature engineering parameters interactively
+- Real-time visualization of results
+- Download sample datasets
+- See top features with scores
+- Processing statistics
+
+See `webapp/README.md` for more details.
 
 ## Running Tests
 
