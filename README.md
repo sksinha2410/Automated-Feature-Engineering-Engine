@@ -244,6 +244,8 @@ python examples/benchmark.py
 
 An interactive web interface is available for testing the library with your own datasets!
 
+![Web Interface Screenshot](https://github.com/user-attachments/assets/d2f22775-3b45-48d8-9d39-3728db95fb81)
+
 ### Running the Web App
 
 ```bash
